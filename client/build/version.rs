@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs, process::Command};
 use last_git_commit::{
     LastGitCommit,
     Id
@@ -6,7 +6,11 @@ use last_git_commit::{
 
 pub fn get_version() -> String {
 
-    let commit = LastGitCommit::new(Some("../"), Some("master")).unwrap().id.short();
+    // Should probably use http://crates.io/crates/git2 here
+    let res = Command::new("git").args(&["branch", "--show-current"]).output().unwrap();
+    let branch = String::from_utf8_lossy(&res.stdout).trim().to_string();
+
+    let commit = LastGitCommit::new(Some("../"), Some(&branch)).unwrap().id.short();
     let cargo_version = env!("CARGO_PKG_VERSION");
 
     format!("{}-{}", cargo_version, commit)
