@@ -16,11 +16,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Setup Rust environment
+      uses: raftario/setup-rust-action@v1.0.0
+
+    - name: Use Stable as Default
+      run: rustup default stable
+
     - name: Show Versions
       run: |
-        rustc --version --verbose
-        rustup --version
-        cargo --version --verbose
+        sudo rustc --version --verbose
+        sudo rustup --version
+        sudo cargo --version --verbose
 
     - name: list
       run: |
