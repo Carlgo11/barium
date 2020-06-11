@@ -15,12 +15,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
+    - name: Show Versions
+      run: |
+        rustc --version --verbose
+        rustup --version
+        cargo --version --verbose
+
     - name: list
       run: |
         pwd
         ls -la .
         sudo mkdir /github/home/.rustup
         sudo chmod 777 -R /github/home/
+
     - name: Build
       run: cargo build --release --target=x86_64-unknown-linux-gnu
       working-directory: /__w/barium/barium
