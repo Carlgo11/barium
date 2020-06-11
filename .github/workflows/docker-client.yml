@@ -12,7 +12,7 @@ jobs:
     container:
       image: olback/rust-gtk-linux
       volumes:
-        - ${{ GITHUB_WORKSPACE }}:/home/circleci/project
+        - /home/runner/work/barium/barium/:/home/circleci/project
 
     steps:
     - uses: actions/checkout@v1
