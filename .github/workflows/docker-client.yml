@@ -16,11 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Show Versions
-      run: |
-        sudo rustc --version --verbose
-        sudo rustup --version
-        sudo cargo --version --verbose
 
     - name: list
       run: |
@@ -30,6 +25,11 @@ jobs:
         sudo mkdir /github/home/.rustup
         sudo chmod 777 -R /github/home/
 
+    - name: Show Versions
+      run: |
+        sudo rustc --version --verbose
+        sudo rustup --version
+        sudo cargo --version --verbose
 
     - name: Use Stable as Default
       run: sudo rustup default stable
