@@ -19,7 +19,6 @@ jobs:
       run: |
         pwd
         ls -la .
-        ls -la /home/runner/work/barium
     - name: Build
       run: sudo cargo test
-      working-directory: /home/runner/work/barium/barium/
+      working-directory: /__w/barium/barium
