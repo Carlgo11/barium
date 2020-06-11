@@ -20,5 +20,5 @@ jobs:
         pwd
         ls -la .
     - name: Build
-      run: sudo cargo test
+      run: cargo build --release --target=x86_64-unknown-linux-gnu
       working-directory: /__w/barium/barium
