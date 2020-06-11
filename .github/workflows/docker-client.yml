@@ -7,9 +7,9 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: olback/rust-gtk-linux
+      image: olback:rust-gtk-linux
       volumes:
-        - /home/runner/work/barium/barium/:/home/circleci/project
+        - /home/runner/work/barium/barium:/home/circleci/project
       env:
         CARGO_TERM_COLOR: always
 
