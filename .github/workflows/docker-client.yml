@@ -10,7 +10,7 @@ jobs:
       image: olback/rust-gtk-linux
       volumes:
         - /home/runner/work/barium/barium:/home/circleci/project
-      options: -w /home/circleci/project
+      options: --workdir "/home/circleci/project"
 
     steps:
     - uses: actions/checkout@v1
