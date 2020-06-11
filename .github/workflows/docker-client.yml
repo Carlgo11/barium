@@ -16,7 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: list
-      run: ls -la
+      run: |
+        ls -la .
+        ls -la /home/runner/work/barium/barium
     - name: Build
       run: sudo cargo test
       working-directory: /home/runner/work/barium/barium/
