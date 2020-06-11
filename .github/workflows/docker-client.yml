@@ -1,10 +1,6 @@
 name: Rust
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 env:
   CARGO_TERM_COLOR: always
@@ -16,8 +12,9 @@ jobs:
     container:
       image: olback/rust-gtk-linux
       volumes:
-        - volume/:/home/circleci/project
+        - ${{ GITHUB_WORKSPACE }}:/home/circleci/project
 
     steps:
+    - uses: actions/checkout@v1
     - name: Build
       run: cargo test
