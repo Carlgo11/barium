@@ -25,9 +25,9 @@ jobs:
 
     - name: Show Versions
       run: |
-        sudo rustc --version --verbose
-        sudo rustup --version
-        sudo cargo --version --verbose
+        rustc --version --verbose
+        rustup --version
+        cargo --version --verbose
 
     - name: Use Stable as Default
       run: sudo rustup default stable
