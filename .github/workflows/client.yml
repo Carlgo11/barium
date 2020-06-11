@@ -1,21 +1,9 @@
 name: Client tests
 
-on:
-  push:
-    paths:
-      - /client
-      - /Cargo.*
-      - /shared
-      - /.github/workflows/client.yml
-  pull_request:
-    paths:
-      - /client
-      - /Cargo.*
-      - /shared
-      - /.github/workflows/client.yml
-
+on: [push]
 jobs:
-  build:
+  linux:
+    name: Linux Client build
 
     runs-on: ubuntu-latest
 
