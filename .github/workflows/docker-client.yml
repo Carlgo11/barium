@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Use Stable as Default
-      run: sudo rustup default stable
-
     - name: Show Versions
       run: |
         sudo rustc --version --verbose
@@ -32,6 +29,10 @@ jobs:
         ls -la .
         sudo mkdir /github/home/.rustup
         sudo chmod 777 -R /github/home/
+
+
+    - name: Use Stable as Default
+      run: sudo rustup default stable
 
     - name: Build
       run: cargo build --release --target=x86_64-unknown-linux-gnu
