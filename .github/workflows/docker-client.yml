@@ -1,20 +1,20 @@
-name: Rust
+name: Docker Linux Client
 
 on: [push]
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
-  build:
+  Docker:
 
     runs-on: ubuntu-latest
     container:
       image: olback/rust-gtk-linux
       volumes:
         - /home/runner/work/barium/barium/:/home/circleci/project
+      env:
+        CARGO_TERM_COLOR: always
 
     steps:
     - uses: actions/checkout@v1
     - name: Build
       run: cargo test
+      working-directory: /home/runner/work/barium/barium/
