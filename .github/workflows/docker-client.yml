@@ -4,6 +4,8 @@ on: [push]
 
 jobs:
   Docker:
+    runs-on: ubuntu-latest
+
     container:
       image: olback/rust-gtk-linux
       volumes:
@@ -16,9 +18,10 @@ jobs:
     - name: list
       run: |
         whoami
+        uname -a
         pwd
         ls -la .
-         mkdir /github/home/.rustup
+        mkdir /github/home/.rustup
         sudo chmod 777 -R /github/home/
 
     - name: Use Stable as Default
