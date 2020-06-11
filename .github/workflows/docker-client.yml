@@ -16,11 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Setup Rust environment
-      uses: raftario/setup-rust-action@v1.0.0
-
     - name: Use Stable as Default
-      run: rustup default stable
+      run: sudo rustup default stable
 
     - name: Show Versions
       run: |
@@ -30,6 +27,7 @@ jobs:
 
     - name: list
       run: |
+        whoami
         pwd
         ls -la .
         sudo mkdir /github/home/.rustup
